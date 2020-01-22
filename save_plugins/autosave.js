@@ -43,7 +43,7 @@ define([
 
 					document.querySelector('li[data-control="autoSave"]').innerHTML = "Autosave in " + minutes+"m "+seconds+"s";
 
-					console.log(distance);
+					
 
 					if(distance<0){
 					document.querySelector('li[data-control="autoSave"]').innerHTML = "Autosaving..";
