@@ -37,13 +37,16 @@ define([
 
 			if(categories.includes('saveButton')){
 				self.show();
+				self.enable();
 			}
 			else{
+				self.disable();
 				self.hide();
 			}
 				})
 				.on('disable tools unloaditem', function(){
-				self.hide();
+					self.disable();
+					self.hide();
 		});
 	},
 
