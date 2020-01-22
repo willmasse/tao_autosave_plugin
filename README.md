@@ -1,5 +1,7 @@
 # tao_autosave_plugin
- A set of plugins for saving Extended Text Responses in the TAO Testing Platform
+
+## Description
+A set of plugins for saving Extended Text Responses in the TAO Testing Platform
 
 autosave.js is a plugin designed to 'force' a save every 5 minutes
 save_button.js creates a save button allowing the user to 'force' a save on demand
@@ -10,10 +12,11 @@ The design of these plugins also means they only work on 'non-linear' test desig
 
 
 
-Instructions
+## Installation
 Place the folder save_plugins into the taoQtiTest/views/js/plugins/tools directory of your TAO installation.
 
 Register the plugins by editing config/taoTests/test_runner_plugin_registry.conf.php to contain the following...
+'''javascript
 
 'taoQtiTest/runner/plugins/tools/save_plugins/save_button' =>array(
     'id' => 'save_button',
@@ -38,6 +41,7 @@ Register the plugins by editing config/taoTests/test_runner_plugin_registry.conf
     'active' => true,
     'tags' => array('tools')
 )
+'''
 
-
-Finally enable the plugins for respective questions by adding the categories 'saveButton' and/or 'autoSave' in the Properties of each test item in Test Authoring.
+## Usage
+Enable the plugins for respective questions by adding the categories 'saveButton' and/or 'autoSave' in the Properties of each test item in Test Authoring.
