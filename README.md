@@ -16,7 +16,7 @@ The design of these plugins also means they only work on 'non-linear' test desig
 Place the folder save_plugins into the taoQtiTest/views/js/plugins/tools directory of your TAO installation.
 
 Register the plugins by editing config/taoTests/test_runner_plugin_registry.conf.php to contain the following...
-'''javascript
+```javascript
 
 'taoQtiTest/runner/plugins/tools/save_plugins/save_button' =>array(
     'id' => 'save_button',
@@ -41,7 +41,7 @@ Register the plugins by editing config/taoTests/test_runner_plugin_registry.conf
     'active' => true,
     'tags' => array('tools')
 )
-'''
+```
 
 ## Usage
 Enable the plugins for respective questions by adding the categories 'saveButton' and/or 'autoSave' in the Properties of each test item in Test Authoring.
