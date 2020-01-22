@@ -2,11 +2,11 @@ define([
 	'taoTests/runner/plugin'
 ], function (pluginFactory){
 	'use strict';
-	
+
 	return pluginFactory({
 
 	name: 'autoSave',
-	
+
 	init: function init() {;
 		var self = this;
 		var areaBroker = this.getAreaBroker();
@@ -27,18 +27,17 @@ define([
 
 
 				var testMap = self.getTestRunner().getTestMap();
-
 				var categories = testMap.parts[testPartId].sections[sectionId].items[itemIdentifier].categories;
 
 				var endTime = new Date().getTime() + 300000;
-				
+
 				if(categories.includes('autoSave')){
 				self.show();
 
-				window.timer = setInterval(function(){ 
+				window.timer = setInterval(function(){
 					var now = new Date().getTime();
 					var distance = endTime-now;
-					
+
 					var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 					var seconds = Math.floor((distance % (1000 * 60)) /1000);
 
@@ -51,7 +50,7 @@ define([
 					window.clearInterval(window.timer);
 					self.getTestRunner().jump(self.getTestRunner().getTestContext()['itemPosition']);
 					}
-				
+
 
 				});
 				}
@@ -92,4 +91,3 @@ define([
 
 	});
 });
-

@@ -2,11 +2,11 @@ define([
 	'taoTests/runner/plugin'
 ], function (pluginFactory){
 	'use strict';
-	
+
 	return pluginFactory({
 
 	name: 'saveButton',
-	
+
 	init: function init() {
 		var self = this;
 		var areaBroker = this.getAreaBroker();
@@ -26,10 +26,24 @@ define([
 		});
 
 		this.getTestRunner().on('enabletools renderitem', function(){
-				self.enable();
+			var testContext = self.getTestRunner().getTestContext();
+			var testPartId = testContext.testPartId;
+			var sectionId = testContext.sectionId;
+			var itemIdentifier = testContext.itemIdentifier;
+
+
+			var testMap = self.getTestRunner().getTestMap();
+			var categories = testMap.parts[testPartId].sections[sectionId].items[itemIdentifier].categories;
+
+			if(categories.includes('saveButton')){
+				self.show();
+			}
+			else{
+				self.hide();
+			}
 				})
 				.on('disable tools unloaditem', function(){
-				self.disable();
+				self.hide();
 		});
 	},
 
@@ -51,11 +65,12 @@ define([
 	},
 
 	show : function show() {
+		this.button.show();
 	},
 
 	hide: function hide() {
+		this.button.hide();
 	}
 
 	});
 });
-
